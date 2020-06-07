@@ -2,6 +2,7 @@
 
 ## 前序遍历
 
+https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
 ```go
 /**
  * Definition for a binary tree node.
@@ -29,7 +30,13 @@ func preorderTraversal(root *TreeNode) []int {
     return res
 
 }
+```
 
+多叉树遍历
+
+https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/
+
+```go
 // 多叉树
 /**
  * Definition for a Node.
@@ -63,6 +70,8 @@ func preorder(root *Node) []int {
 
 
 ## 中序遍历
+
+https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
 
 ```go
 /**
@@ -158,4 +167,41 @@ func postorder(root *Node) []int {
     }
     return res
 }
+```
+
+
+// 二叉树的层序遍历
+
+
+// N 叉树层序遍历, 迭代实现
+https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+
+```go
+func levelOrder(root *Node) [][]int {
+	if root == nil {
+		return nil
+	}
+
+	res := [][]int{}
+	level := 0
+	queue := []*Node{root}
+
+	for len(queue) > 0 {
+		counter := len(queue)
+		res = append(res, []int{})
+		for i := 0; i < counter; i++ {
+			if queue[i] == nil {
+				continue
+			}
+			res[level] = append(res[level], queue[i].Val)
+			for _, n := range queue[i].Children {
+				queue = append(queue, n)
+			}
+		}
+		queue = queue[counter:]
+		level++
+	}
+	return res
+}
+
 ```
