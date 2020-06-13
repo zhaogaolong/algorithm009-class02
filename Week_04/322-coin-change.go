@@ -15,7 +15,7 @@ func coinChange(coins []int, amount int) int {
 		amount: amount,
 		coins:  coins,
 	}
-	dfs()
+	s.dfs(0, 0, 0)
 	return s.max
 }
 
