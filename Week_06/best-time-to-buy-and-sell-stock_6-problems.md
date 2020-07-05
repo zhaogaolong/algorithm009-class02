@@ -95,3 +95,15 @@ func max(a, b int) int {
     return b
 }
 ```
+
+## 714. 买卖股票的最佳时机含手续费
+
+> https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+
+题目要点： 每次交易收取一定的手续费，不限次数交易（多挣交易费嘛 ^\_^）
+题目分析：
+
+- `dp0` 代表手里有钱，没股票
+  - dp 公式：`dp1 = max(dp1, dp1 + prices[i])`
+- `dp1` 代表手里有股票, 从前一天的 dp0 - 今天股价 - 手续费
+  - dp 公式：`dp1 = max(dp1, dp0 - prices[i] - fee)`
