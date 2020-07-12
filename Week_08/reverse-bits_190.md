@@ -25,10 +25,12 @@ func reverseBits(num uint32) uint32 {
     var res uint32
     for i :=0; i < 32;i++{
         temp := res << 1 // res * 2
+
+        // 获取最后一位
         temp2 := num & 1 // 最后一位是 1 则为 1 ， 类似 n % 2 取模一样
 
-        res = temp | temp2 // 合并
-        num >>= 1 //  去除最后一位， 类似：  num * 2
+        res = temp | temp2 // 或以下合并
+        num >>= 1 //  去除最后一位s's
     }
     return res
 }
