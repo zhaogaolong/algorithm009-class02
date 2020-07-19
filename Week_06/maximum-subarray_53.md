@@ -75,7 +75,7 @@ func maxProduct(nums []int) int {
         imax = max(imax * nums[i], nums[i])
         imin = min(imin * nums[i], nums[i])
         res = max(res, imax)
-    }
+    
     return res
 }
 ```
